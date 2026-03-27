@@ -1,23 +1,31 @@
 from aiogram import Bot,Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.fsm.context import FSMContext
+from database.db import Database
 import asyncio
 
 from handlers.start import router as start_router
 from test__aa.car import router as car_router
 from test__aa.history import router as history_router
 from test__aa.it import router as it_router
+from handlers.register import router as register_router
 
 
 async def main():
-    bot=Bot(token='8702350091:AAGTsYCRI8wR7pMzItfQ08M5EC6ACeiz7to')
+    bot=Bot(token='8689455913:AAG4O0VhB4oEquSGoKAQeliQit2MeHYk38g')
     storage = MemoryStorage()
     dp=Dispatcher(storage=storage)
+    
+    db = Database()
+    await db.connect()
+    dp['db']=db
+
     
     dp.include_router(start_router)
     dp.include_router(car_router)
     dp.include_router(it_router)
     dp.include_router(history_router)
+    dp.include_router(register_router)
 
     
     await dp.start_polling(bot)
