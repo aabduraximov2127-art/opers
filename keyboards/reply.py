@@ -9,38 +9,10 @@ def register():
         resize_keyboard=True
     )
 
-def savol2ga_otish():
+
+def profile():
     return ReplyKeyboardMarkup(
         keyboard=[
-            [KeyboardButton(text='2-savol')],
+            [KeyboardButton(text="Profile")]
         ],resize_keyboard=True
     )
-
-def savol3ga_otish():
-    return ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text='3-savol')],
-        ],resize_keyboard=True
-    )
-
-def savol4ga_otish():
-    return ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text='4-savol')],
-        ],resize_keyboard=True
-    )
-
-def savol5ga_otish():
-    return ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text='5-savol')],
-        ],resize_keyboard=True
-    )
-
-def natija():
-    return ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text='Natija')],
-        ],resize_keyboard=True
-    )
-

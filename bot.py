@@ -9,6 +9,8 @@ from test__aa.car import router as car_router
 from test__aa.history import router as history_router
 from test__aa.it import router as it_router
 from handlers.register import router as register_router
+from natija.natija import router as natija_router
+from handlers.user.profile import router as profile_router
 
 
 async def main():
@@ -26,6 +28,8 @@ async def main():
     dp.include_router(it_router)
     dp.include_router(history_router)
     dp.include_router(register_router)
+    dp.include_router(natija_router)
+    dp.include_router(profile_router)
 
     
     await dp.start_polling(bot)

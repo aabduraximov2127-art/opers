@@ -30,3 +30,23 @@ def savol33():
             [InlineKeyboardButton(text="D) Sultan Yo‘li",callback_data="sultan1")],
         ]
     )
+
+def savol44():
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="A) Peter I",callback_data="peter")],
+            [InlineKeyboardButton(text="B) Joseph Stalin",callback_data="joseph")],
+            [InlineKeyboardButton(text="C) Nicholas II",callback_data="nicholas1")],
+            [InlineKeyboardButton(text="D) Vladimir Lenin",callback_data="vladimer1")],
+        ]
+    )
+
+def savol55():
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="A) Ispaniya",callback_data="ispaniya1")],
+            [InlineKeyboardButton(text="B) Angliya",callback_data="angliya1")],
+            [InlineKeyboardButton(text="C) Fransiya",callback_data="fransiya1")],
+            [InlineKeyboardButton(text="D) Germaniya",callback_data="germaniya1")],
+        ]
+    )

@@ -3,14 +3,17 @@ from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 from steats.register import RegisterState
 from keyboards.inline import start_menyu
+from keyboards.reply import profile
 
 
 router=Router()
 
-
-@router.message(F.text == 'Register')
+@router.message(F.text == 'Register',)
 async def register_handler(msg: Message, state: FSMContext,db):
-    await msg.answer('Registratsiyadan o‘tish uchun ismingizni yozing:')
+    if await db.is_user_exists(msg.from_user.id):
+        await msg.answer('Siz avval royhardan otib bolgan ekansiz!\nIltoms asosiy menyudan foydalaning',reply_markup=start_menyu())
+    else:  
+        await msg.answer('Registratsiyadan o\'tish uchun ismingizni yozing:')
     await state.set_state(RegisterState.name)
 
 
@@ -46,11 +49,10 @@ async def process_phone(msg: Message, state: FSMContext, db):
     await state.update_data(phone_number=msg.text)
     
     data=await state.get_data()
-    await msg.answer(f"Ism:{data['name']}\nFamilya: {data['surname']}\nYosh: {data['age']}\nTelefon Nomer: {data['phone_number']} ")
+    await msg.answer(f"Ism:{data['name']}\nFamilya: {data['surname']}\nYosh: {data['age']}\nTelefon Nomer: {data['phone_number']} ",reply_markup=profile())
     await db.add_user(int(msg.from_user.id),data['name'],data['surname'],data['age'],data['phone_number'])
     await msg.answer(
-    "Ma'lumotlaringiz qabul qilindi va Siz Registratsiyadan muvaffaqiyatli o‘tdingiz!",
-    reply_markup=start_menyu()
+    "Ma'lumotlaringiz qabul qilindi va Siz Registratsiyadan muvaffaqiyatli o‘tdingiz!\nEndi siz testlarni yechishingiz mumkun marhamat👇",reply_markup=start_menyu()
 )
     # await msg.answer("Endi testlarni boshlasak boladi!👉",reply_markup=start_menyu())
     await state.clear()

@@ -2,6 +2,7 @@ import asyncpg
 from database.coonfig import cnf
 
 
+
 class Database:
     def __init__(self):
         self.pool=None
@@ -24,3 +25,21 @@ class Database:
         """
         await self.pool.execute(query,name,
         surname,age,phone_number,telegram_id)
+        
+        
+    async def profi(self, tg_id):
+        query = """
+        SELECT telegram_id, name, surname, age, phone_number,
+        role
+        FROM users
+        WHERE telegram_id = $1
+        """
+        return await self.pool.fetchrow(query, tg_id)
+    
+    async def is_user_exists(self, telegram_id: int) -> bool:
+        query = """
+        SELECT EXISTS (
+        SELECT 1 FROM users WHERE telegram_id = $1
+        );
+        """
+        return await self.pool.fetchval(query, telegram_id)
