@@ -3,24 +3,24 @@ from aiogram.types import InlineKeyboardButton,InlineKeyboardMarkup
 
 def it_savol1():
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="A) Kompyuter", callback_data="it9")],
+        [InlineKeyboardButton(text="A) Qoshiq", callback_data="it3")],
         [InlineKeyboardButton(text="B) Stol", callback_data="it2")],
-        [InlineKeyboardButton(text="C) Kitob", callback_data="it3")],
+        [InlineKeyboardButton(text="C) Kompyuter", callback_data="it9")],
         [InlineKeyboardButton(text="D) Lampochka", callback_data="it4")],
     ])
 
 def it_savol2():
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="A) Windows", callback_data="win")],
+        [InlineKeyboardButton(text="A) Lampa", callback_data="lampa")],
         [InlineKeyboardButton(text="B) Stol", callback_data="stol")],
         [InlineKeyboardButton(text="C) Kitob", callback_data="kitob")],
-        [InlineKeyboardButton(text="D) Lampa", callback_data="lampa")],
+        [InlineKeyboardButton(text="D) Windows", callback_data="win")],
     ])
 
 def it_savol3():
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="A) Internet", callback_data="net")],
-        [InlineKeyboardButton(text="B) Oyna", callback_data="oyna")],
+        [InlineKeyboardButton(text="A) Oyna", callback_data="oyna")],
+        [InlineKeyboardButton(text="B) Internet", callback_data="net")],
         [InlineKeyboardButton(text="C) Choy", callback_data="choy")],
         [InlineKeyboardButton(text="D) Stol", callback_data="stol2")],
     ])
