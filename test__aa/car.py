@@ -109,13 +109,13 @@ async def q5(call: CallbackQuery, state: FSMContext):
     else:
         text = "❌ Xato"
 
-    # NATIJA
+    
     if score == 5:
-        result = "🔥 Zo‘r!"
+        result = "🔥 Qchg'!"
     elif score >= 3:
-        result = "👍 Yaxshi!"
+        result = "👍 Bolad-Ortacha!"
     else:
-        result = "📚 Yana mashq qil!"
+        result = "📚 Yomon xarakat qil!"
 
     await call.message.answer(
         f"{text}\n\n📊 Natija: {score}/5\n{result}",

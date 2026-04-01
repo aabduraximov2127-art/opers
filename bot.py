@@ -11,6 +11,7 @@ from test__aa.it import router as it_router
 from handlers.register import router as register_router
 from natija.natija import router as natija_router
 from handlers.user.profile import router as profile_router
+from handlers.admin.admin import router as admin_router
 
 
 async def main():
@@ -30,6 +31,7 @@ async def main():
     dp.include_router(register_router)
     dp.include_router(natija_router)
     dp.include_router(profile_router)
+    dp.include_router(admin_router)
 
     
     await dp.start_polling(bot)

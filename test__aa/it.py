@@ -128,11 +128,11 @@ async def show_it_result(call: CallbackQuery):
     score = user_scores.get(user_id, {"it": 0})["it"]
 
     if score == 5:
-        result = "🔥 Zo'r!"
+        result = "🔥 Qchg'!"
     elif score >= 3:
-        result = "👍 Yaxshi!"
+        result = "👍 Bolad-Ortacha!"
     else:
-        result = "📚 Yana mashq qil!"
+        result = "📚 Yomon xarakat qil!"
 
     await call.message.answer(
         f"💻 IT Test Natijasi: {score}/5 - {result}\n\nYana test ishlamoqchimisiz? 👇",

@@ -1,10 +1,19 @@
 from aiogram import Router,F
 from aiogram.types import Message
-from aiogram.filters import CommandStart
+from aiogram.filters import CommandStart,Command
+from keyboards.reply import register,admin_menyu
+from handlers.admin.adminfilter import RoleFilter
 from keyboards.inline import start_menyu
-from keyboards.reply import register
+
+
 
 router=Router()
+
+@router.message(CommandStart(),RoleFilter('admin'))
+async def start_admin(msg:Message):
+    await msg.answer(f'Assalomu Alekom {msg.from_user.first_name} ADMIN botimzga yozganingizdan xursandmiz!',reply_markup=admin_menyu())
+
+
 
 @router.message(CommandStart())
 async def start_handler(msg: Message,db):
@@ -13,3 +22,5 @@ async def start_handler(msg: Message,db):
     else:
         await msg.answer('Assalomu Alekom botga yozganingizdan xursandmiz\nBotimizni qoiadalariga amal qilgan xolda royhatan otishingizni sorayaman: ')
         await msg.answer('Bot toliq ishlashi uchun Registratsiyadan o\'ting',reply_markup=register())
+        
+        
